@@ -44,6 +44,7 @@ var sammyApp = Sammy('#content', function () {
                 $('#add-new').click(function () {
                     item.name = $('#new-name').val();
                     db.save(item);
+                    location.href = '#/items';
                 });
             });
     });
