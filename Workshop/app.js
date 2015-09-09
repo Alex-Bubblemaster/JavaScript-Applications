@@ -34,7 +34,7 @@ var sammyApp = Sammy('#content', function () {
             })
     });
 
-    this.get('#/add', function () {
+    this.get('#/add', function (context) {
         templateLoader.get('add')
             .then(function (html) {
                 $('#content').html(html);
@@ -44,7 +44,8 @@ var sammyApp = Sammy('#content', function () {
                 $('#add-new').click(function () {
                     item.name = $('#new-name').val();
                     db.save(item);
-                    location.href = '#/items';
+                    context.redirect('#/items');
+                    // location.href = '#/items'; - old school way without context
                 });
             });
     });
